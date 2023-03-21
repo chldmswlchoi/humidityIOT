@@ -1,0 +1,59 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.example.humidity"
+        minSdk 23
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    // 안드로이드 용 차트 라이브러리
+
+    //변환기 추가 부분
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    //gson 라이브러리에서 파싱한 것을 dto 객체로 바꿔주는 라이브러리 parser로 gson 선택햇으면 conver는 gson 지원하는 것을 써야 한다.
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+    //레트로핏에서 응답을 string으로 받아올 때 필요함
+
+    // OkHttp
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.5.0'
+    // Use for HttpLoggingInterceptor
+    implementation group: 'com.squareup.okhttp3', name: 'logging-interceptor', version: '4.5.0'
+
+    //슬라이딩 레이아웃 라이브러리
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+
+    // 뷰페이저에 사용할 inndicator 라이브러리
+    implementation 'me.relex:circleindicator:2.1.6'
+
+
+}
